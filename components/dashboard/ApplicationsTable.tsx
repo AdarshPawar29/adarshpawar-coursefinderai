@@ -1,6 +1,5 @@
 "use client";
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Table,
   TableBody,
@@ -9,163 +8,232 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Clock } from "lucide-react";
+import { Maximize2, ChevronLeft, ChevronRight, ArrowUpDown } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { useState } from "react";
 
 interface Application {
   id: string;
   ackNo: string;
   studentName: string;
+  studentEmail: string;
   university: string;
   program: string;
-  pendingSince: string;
+  programDetail: string;
+  pendingTime: string;
+  pendingDate: string;
 }
 
 const mockApplications: Application[] = [
   {
     id: "1",
-    ackNo: "CRS0245",
-    studentName: "John Smith",
-    university: "Northern University",
-    program: "MBA in Finance",
-    pendingSince: "2 days",
+    ackNo: "117110/22-23",
+    studentName: "Rishi Joshi",
+    studentEmail: "rishijoshi@gmail.com",
+    university: "Sheffield Hallam...",
+    program: "Msc",
+    programDetail: "Internatio...",
+    pendingTime: "1 Day",
+    pendingDate: "12 Dec 2022",
   },
   {
     id: "2",
-    ackNo: "CRS0246",
-    studentName: "Priya Sharma",
-    university: "Western College",
-    program: "MSc Computer Science",
-    pendingSince: "5 days",
+    ackNo: "117110/22-23",
+    studentName: "Viren Shah",
+    studentEmail: "virensha24@gmail.com",
+    university: "Sheffield Hallam...",
+    program: "Msc",
+    programDetail: "Internatio...",
+    pendingTime: "1 Day",
+    pendingDate: "12 Dec 2022",
   },
   {
     id: "3",
-    ackNo: "CRS0247",
-    studentName: "Mike Johnson",
-    university: "Eastern Institute",
-    program: "BBA Marketing",
-    pendingSince: "1 day",
+    ackNo: "117110/22-23",
+    studentName: "Tushar Joshi",
+    studentEmail: "rishijoshi@gmail.com",
+    university: "Sheffield Hallam...",
+    program: "Msc",
+    programDetail: "Internatio...",
+    pendingTime: "1 Day",
+    pendingDate: "12 Dec 2022",
   },
   {
     id: "4",
-    ackNo: "CRS0248",
-    studentName: "Sarah Williams",
-    university: "Central University",
-    program: "MA Psychology",
-    pendingSince: "7 days",
+    ackNo: "117110/22-23",
+    studentName: "Rishi Joshi",
+    studentEmail: "rishijoshi@gmail.com",
+    university: "Sheffield Hallam...",
+    program: "Msc",
+    programDetail: "Internatio...",
+    pendingTime: "1 Day",
+    pendingDate: "12 Dec 2022",
   },
   {
     id: "5",
-    ackNo: "CRS0249",
-    studentName: "Rahul Verma",
-    university: "Pacific College",
-    program: "BTech Engineering",
-    pendingSince: "3 days",
+    ackNo: "117110/22-23",
+    studentName: "Rishi Joshi",
+    studentEmail: "rishijoshi@gmail.com",
+    university: "Sheffield Hallam...",
+    program: "Msc",
+    programDetail: "Internatio...",
+    pendingTime: "1 Day",
+    pendingDate: "12 Dec 2022",
   },
 ];
 
 export function ApplicationsTable() {
+  const [activeTab, setActiveTab] = useState("pending");
+
   return (
-    <div className="bg-white rounded-lg shadow-[0_2px_12px_rgba(0,0,0,0.06)]">
+    <div className="bg-white rounded-[8px] shadow-[0px_2px_15px_rgba(0,0,0,0.1)] h-full flex flex-col">
       {/* Header */}
-      <div className="px-5 py-4 border-b border-[#EBEBEB]">
-        <h2 className="text-[16px] font-medium text-[#1A1A1A]">Applications</h2>
+      <div className="px-5 pt-6 pb-4 flex justify-between items-center">
+        <h2 className="text-[18px] font-bold text-[#3B3B3B]">Applications</h2>
+        <button className="text-[#939393] hover:text-[#3B3B3B] transition-colors">
+          <Maximize2 className="h-4 w-4" />
+        </button>
       </div>
 
-      {/* Tabs and Content */}
-      <Tabs defaultValue="pending" className="w-full">
-        <div className="border-b border-[#EBEBEB] px-5">
-          <TabsList className="h-auto bg-transparent p-0 gap-6">
-            <TabsTrigger
-              value="pending"
-              className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:text-primary px-0 pb-3 pt-3 text-[14px] font-medium text-muted-foreground"
-            >
-              Pending On Me
-              <span className="ml-2 px-2 py-0.5 text-[12px] bg-muted rounded-full text-muted-foreground data-[state=active]:bg-blue-50 data-[state=active]:text-primary">
-                15
-              </span>
-            </TabsTrigger>
-            <TabsTrigger
-              value="in-progress"
-              className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:text-primary px-0 pb-3 pt-3 text-[14px] font-medium text-muted-foreground"
-            >
-              In Progress
-              <span className="ml-2 px-2 py-0.5 text-[12px] bg-muted rounded-full text-muted-foreground">
-                12
-              </span>
-            </TabsTrigger>
-            <TabsTrigger
-              value="completed"
-              className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:text-primary px-0 pb-3 pt-3 text-[14px] font-medium text-muted-foreground"
-            >
-              Completed
-              <span className="ml-2 px-2 py-0.5 text-[12px] bg-muted rounded-full text-muted-foreground">
-                18
-              </span>
-            </TabsTrigger>
-          </TabsList>
-        </div>
+      {/* Custom Tabs */}
+      <div className="px-5 flex gap-4 mb-4">
+        <button
+          onClick={() => setActiveTab("pending")}
+          className={cn(
+            "px-3 py-1.5 rounded-[4px] text-[14px] font-semibold transition-colors flex items-center gap-2",
+            activeTab === "pending"
+              ? "bg-[#EBF2FF] text-[#226CF5]"
+              : "bg-transparent text-[#3B3B3B] hover:bg-gray-50"
+          )}
+        >
+          Pending On Me <span className={cn("text-[14px]", activeTab === "pending" ? "text-[#226CF5]" : "text-[#3B3B3B]")}>(15)</span>
+        </button>
+        <button
+          onClick={() => setActiveTab("lorem1")}
+          className={cn(
+            "px-3 py-1.5 rounded-[4px] text-[14px] font-medium transition-colors flex items-center gap-2",
+            activeTab === "lorem1"
+              ? "bg-[#EBF2FF] text-[#226CF5]"
+              : "bg-transparent text-[#3B3B3B] hover:bg-gray-50"
+          )}
+        >
+          Lorem Ipsum (12)
+        </button>
+        <button
+          onClick={() => setActiveTab("lorem2")}
+          className={cn(
+            "px-3 py-1.5 rounded-[4px] text-[14px] font-medium transition-colors flex items-center gap-2",
+            activeTab === "lorem2"
+              ? "bg-[#EBF2FF] text-[#226CF5]"
+              : "bg-transparent text-[#3B3B3B] hover:bg-gray-50"
+          )}
+        >
+          Lorem Ipsum (18)
+        </button>
+      </div>
 
-        <TabsContent value="pending" className="m-0">
-          <div className="overflow-x-auto">
-            <Table>
-              <TableHeader>
-                <TableRow className="hover:bg-transparent border-b border-[#EBEBEB]">
-                  <TableHead className="w-[100px] text-[13px] font-medium text-[#999999] uppercase tracking-wider py-3">
-                    Ack. no.
-                  </TableHead>
-                  <TableHead className="text-[13px] font-medium text-[#999999] uppercase tracking-wider py-3">
-                    Student name
-                  </TableHead>
-                  <TableHead className="hidden md:table-cell text-[13px] font-medium text-[#999999] uppercase tracking-wider py-3">
-                    University
-                  </TableHead>
-                  <TableHead className="hidden lg:table-cell text-[13px] font-medium text-[#999999] uppercase tracking-wider py-3">
-                    Program
-                  </TableHead>
-                  <TableHead className="text-right text-[13px] font-medium text-[#999999] uppercase tracking-wider py-3">
-                    Pending Since
-                  </TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {mockApplications.map((app) => (
-                  <TableRow
-                    key={app.id}
-                    className="cursor-pointer hover:bg-[#F8F9FB] transition-colors border-b border-[#EBEBEB] last:border-b-0"
-                  >
-                    <TableCell className="font-medium text-primary text-[14px] py-4">
-                      {app.ackNo}
-                    </TableCell>
-                    <TableCell className="text-[14px] text-[#1A1A1A] py-4">
+      {/* Table */}
+      <div className="w-full">
+        <Table>
+          <TableHeader className="bg-[#EBEEF1]">
+            <TableRow className="border-none hover:bg-[#EBEEF1]">
+              <TableHead className="w-[140px] text-[#939393] font-medium text-[13px] h-[36px] text-center">
+                <div className="flex items-center justify-center gap-1 cursor-pointer hover:text-[#3B3B3B]">
+                  Ack. no. <ArrowUpDown className="h-3 w-3" />
+                </div>
+              </TableHead>
+              <TableHead className="text-[#939393] font-medium text-[13px] h-[36px]">
+                <div className="flex items-center gap-1 cursor-pointer hover:text-[#3B3B3B]">
+                  Student name <ArrowUpDown className="h-3 w-3" />
+                </div>
+              </TableHead>
+              <TableHead className="text-[#939393] font-medium text-[13px] h-[36px]">
+                <div className="flex items-center gap-1 cursor-pointer hover:text-[#3B3B3B]">
+                  University <ArrowUpDown className="h-3 w-3" />
+                </div>
+              </TableHead>
+              <TableHead className="text-[#939393] font-medium text-[13px] h-[36px]">
+                <div className="flex items-center gap-1 cursor-pointer hover:text-[#3B3B3B]">
+                  Program <ArrowUpDown className="h-3 w-3" />
+                </div>
+              </TableHead>
+              <TableHead className="text-[#939393] font-medium text-[13px] h-[36px] text-center">
+                <div className="flex items-center justify-center gap-1 cursor-pointer hover:text-[#3B3B3B]">
+                  Pending Since <ArrowUpDown className="h-3 w-3" />
+                </div>
+              </TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {mockApplications.map((app) => (
+              <TableRow
+                key={app.id}
+                className="cursor-pointer hover:bg-[#F8F9FB] border-b border-[#EBEBEB] last:border-0"
+              >
+                <TableCell className="py-4 align-top text-center">
+                  <span className="text-[#3B3B3B] text-[13px] border-b border-[#3B3B3B] pb-[1px] leading-tight">
+                    {app.ackNo}
+                  </span>
+                </TableCell>
+                <TableCell className="py-4 align-top">
+                  <div className="flex flex-col">
+                    <span className="text-[#3B3B3B] text-[13px] font-medium">
                       {app.studentName}
-                    </TableCell>
-                    <TableCell className="hidden md:table-cell text-[14px] text-[#666666] py-4">
-                      {app.university}
-                    </TableCell>
-                    <TableCell className="hidden lg:table-cell text-[14px] text-[#666666] py-4">
+                    </span>
+                    <span className="text-[#939393] text-[13px]">
+                      {app.studentEmail}
+                    </span>
+                  </div>
+                </TableCell>
+                <TableCell className="py-4 align-top">
+                  <span className="text-[#3B3B3B] text-[13px] font-medium">
+                    {app.university}
+                  </span>
+                </TableCell>
+                <TableCell className="py-4 align-top">
+                  <div className="flex flex-col">
+                    <span className="text-[#3B3B3B] text-[13px] font-medium">
                       {app.program}
-                    </TableCell>
-                    <TableCell className="text-right py-4">
-                      <span className="inline-flex items-center gap-1.5 text-[14px] text-[#666666]">
-                        <Clock className="h-3.5 w-3.5 text-[#999999]" />
-                        {app.pendingSince}
-                      </span>
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </div>
-        </TabsContent>
+                    </span>
+                    <span className="text-[#3B3B3B] text-[13px]">
+                      {app.programDetail}
+                    </span>
+                  </div>
+                </TableCell>
+                <TableCell className="py-4 align-top text-center">
+                  <div className="flex flex-col items-center">
+                    <span className="text-[#3B3B3B] text-[13px] font-medium">
+                      {app.pendingTime}
+                    </span>
+                    <span className="text-[#939393] text-[12px]">
+                      {app.pendingDate}
+                    </span>
+                  </div>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
 
-        <TabsContent value="in-progress" className="m-0 p-8 text-center text-[#666666] text-[14px]">
-          No applications in progress.
-        </TabsContent>
-
-        <TabsContent value="completed" className="m-0 p-8 text-center text-[#666666] text-[14px]">
-          No completed applications.
-        </TabsContent>
-      </Tabs>
+      {/* Pagination */}
+      <div className="flex items-center justify-center gap-2 py-6 mt-auto">
+        <button className="h-8 w-8 flex items-center justify-center text-[#939393] hover:text-[#3B3B3B]">
+          <ChevronLeft className="h-5 w-5" />
+        </button>
+        <button className="h-8 w-8 rounded-full bg-white shadow-[0_2px_8px_rgba(0,0,0,0.08)] text-[#3B3B3B] font-bold text-[14px] flex items-center justify-center border border-[#EBEBEB]">
+          1
+        </button>
+        <button className="h-8 w-8 rounded-full text-[#939393] hover:text-[#3B3B3B] hover:bg-gray-50 text-[14px] font-medium flex items-center justify-center transition-colors">
+          2
+        </button>
+        <button className="h-8 w-8 rounded-full text-[#939393] hover:text-[#3B3B3B] hover:bg-gray-50 text-[14px] font-medium flex items-center justify-center transition-colors">
+          3
+        </button>
+        <button className="h-8 w-8 flex items-center justify-center text-[#226CF5] hover:text-[#1952C1]">
+          <ChevronRight className="h-5 w-5" />
+        </button>
+      </div>
     </div>
   );
 }
