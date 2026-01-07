@@ -20,6 +20,7 @@ import {
   ChevronRight,
   Menu,
   X,
+  MessageSquarePlus,
 } from "lucide-react";
 
 interface NavItem {
@@ -163,6 +164,16 @@ export function Sidebar() {
               })}
             </div>
           </ScrollArea>
+
+          <div className="p-3">
+            <Link
+              href="#"
+              className="flex items-center gap-3 px-4 py-3 rounded-lg text-[14px] font-normal text-[#666666] hover:bg-[#F5F5F5] hover:text-[#1A1A1A] transition-all duration-200"
+            >
+              <MessageSquarePlus className="h-5 w-5 text-[#666666]" />
+              Submit feedback
+            </Link>
+          </div>
         </div>
       </aside>
     </>
