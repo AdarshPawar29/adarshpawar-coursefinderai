@@ -54,7 +54,7 @@ export function UpcomingEvents() {
   const startTimer = () => {
     timerRef.current = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % events.length);
-    }, 3000);
+    }, 7000);
   };
 
   const stopTimer = () => {
