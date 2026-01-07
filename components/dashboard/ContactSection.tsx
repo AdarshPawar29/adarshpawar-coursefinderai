@@ -20,6 +20,7 @@ const contacts: ContactPerson[] = [
     phone: "+91 98765 43210",
     email: "sshatmal123@kcoverseas.com",
     initials: "SS",
+    avatarUrl: "https://images.unsplash.com/photo-1506863530036-1efeddceb993?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D",
   },
   {
     id: 2,
@@ -29,6 +30,7 @@ const contacts: ContactPerson[] = [
     phone: "+91 98765 43210",
     email: "sshatmal123@kcoverseas.com",
     initials: "SS",
+    avatarUrl: "https://images.unsplash.com/photo-1506863530036-1efeddceb993?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D",
   },
   {
     id: 3,
@@ -38,6 +40,7 @@ const contacts: ContactPerson[] = [
     phone: "+91 98765 43210",
     email: "sshatmal123@kcoverseas.com",
     initials: "SS",
+    avatarUrl: "https://images.unsplash.com/photo-1506863530036-1efeddceb993?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D",
   },
 ];
 
