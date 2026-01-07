@@ -7,48 +7,39 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import {
-  LayoutDashboard,
-  Users,
-  FileText,
-  Search,
-  Wallet,
-  CreditCard,
-  Briefcase,
-  Link2,
-  BookOpen,
   ChevronDown,
   ChevronRight,
   Menu,
   X,
-  MessageSquarePlus,
 } from "lucide-react";
+import Image from "next/image";
 
 interface NavItem {
   title: string;
   href: string;
-  icon: React.ElementType;
+  icon: string;
 }
 
 interface NavGroup {
   title: string;
-  icon: React.ElementType;
+  icon: string;
   items?: NavItem[];
   expandable?: boolean;
 }
 
 const mainNavItems: NavItem[] = [
-  { title: "Dashboard", href: "/", icon: LayoutDashboard },
-  { title: "Students", href: "/students", icon: Users },
-  { title: "Applications", href: "/applications", icon: FileText },
-  { title: "Search Courses", href: "/search", icon: Search },
-  { title: "Wallet", href: "/wallet", icon: Wallet },
-  { title: "Commission Payments", href: "/commission", icon: CreditCard },
+  { title: "Dashboard", href: "/", icon: "/assets/icons/Dashboard.svg" },
+  { title: "Students", href: "/students", icon: "/assets/icons/Students.svg" },
+  { title: "Applications", href: "/applications", icon: "/assets/icons/Applications.svg" },
+  { title: "Search Courses", href: "/search", icon: "/assets/icons/Search Courses.svg" },
+  { title: "Wallet", href: "/wallet", icon: "/assets/icons/Wallet.svg" },
+  { title: "Commission Payments", href: "/commission", icon: "/assets/icons/Commission Payments.svg" },
 ];
 
 const navGroups: NavGroup[] = [
-  { title: "Allied Services", icon: Briefcase, expandable: true },
-  { title: "Quick Links", icon: Link2, expandable: true },
-  { title: "Learning Resources", icon: BookOpen, expandable: true },
+  { title: "Allied Services", icon: "/assets/icons/Allied Services.svg", expandable: true },
+  { title: "Quick Links", icon: "/assets/icons/Quick Links.svg", expandable: true },
+  { title: "Learning Resources", icon: "/assets/icons/Learning Resources.svg", expandable: true },
 ];
 
 export function Sidebar() {
@@ -118,7 +109,13 @@ export function Sidebar() {
                         : "text-[#666666] hover:bg-[#F5F5F5] hover:text-[#1A1A1A]"
                     )}
                   >
-                    <item.icon className={cn("h-5 w-5", active ? "text-white" : "text-[#666666]")} />
+                    <Image
+                      src={item.icon}
+                      alt={item.title}
+                      width={20}
+                      height={20}
+                      className={cn("h-5 w-5", active ? "" : "")}
+                    />
                     {item.title}
                   </Link>
                 );
@@ -136,7 +133,13 @@ export function Sidebar() {
                       className="flex w-full items-center justify-between px-4 py-3 rounded-lg text-[14px] font-normal text-[#666666] hover:bg-[#F5F5F5] hover:text-[#1A1A1A] transition-all duration-200"
                     >
                       <span className="flex items-center gap-3">
-                        <group.icon className="h-5 w-5 text-[#666666]" />
+                        <Image
+                          src={group.icon}
+                          alt={group.title}
+                          width={20}
+                          height={20}
+                          className="h-5 w-5"
+                        />
                         {group.title}
                       </span>
                       {isExpanded ? (
@@ -170,7 +173,13 @@ export function Sidebar() {
               href="#"
               className="flex items-center gap-3 px-4 py-3 rounded-lg text-[14px] font-normal text-[#666666] hover:bg-[#F5F5F5] hover:text-[#1A1A1A] transition-all duration-200"
             >
-              <MessageSquarePlus className="h-5 w-5 text-[#666666]" />
+              <Image
+                src="/assets/icons/Submit feedback.svg"
+                alt="Submit feedback"
+                width={20}
+                height={20}
+                className="h-5 w-5"
+              />
               Submit feedback
             </Link>
           </div>

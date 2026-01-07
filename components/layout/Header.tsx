@@ -11,7 +11,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Search, Bell, Megaphone, ChevronDown, LogOut, Settings, User } from "lucide-react";
+import { Search, Bell, ChevronDown, LogOut, Settings, User } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 export function Header() {
@@ -61,8 +62,14 @@ export function Header() {
             size="sm"
             className="hidden sm:flex items-center gap-2 text-white hover:bg-white/15 hover:text-white h-9 px-3"
           >
-            <Megaphone className="h-4 w-4" />
-            <span className="hidden lg:inline text-[14px]">What&apos;s New?</span>
+            <Image
+              src="/assets/icons/Whats New.svg"
+              alt="What's New"
+              width={16}
+              height={16}
+              className="h-4 w-4"
+            />
+            <span className="hidden lg:inline text-[14px] underline">What&apos;s New?</span>
           </Button>
 
           {/* Notifications - Rounded Square Box */}
