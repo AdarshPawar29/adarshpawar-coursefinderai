@@ -38,7 +38,7 @@ const statsData = [
     value: 8,
     label: "VISA Received",
     description: "Offer letter",
-    variant: "red" as const,
+    variant: "gray" as const,
   },
 ];
 
