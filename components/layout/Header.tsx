@@ -115,7 +115,7 @@ export function Header() {
                 </Avatar>
                 
                 <div className="hidden lg:flex flex-col items-start gap-0.5">
-                  <span className="text-[14px] font-medium leading-none">Diksha Goel</span>
+                  <span className="text-[14px] font-medium leading-none">Adarsh Pawar</span>
                 </div>
                 
                 <ChevronDown className="h-4 w-4 opacity-70 ml-1" />
@@ -124,8 +124,8 @@ export function Header() {
             <DropdownMenuContent align="end" className="w-56">
               <DropdownMenuLabel className="font-normal">
                 <div className="flex flex-col space-y-1">
-                  <p className="text-sm font-medium">Diksha Goel</p>
-                  <p className="text-xs text-muted-foreground">diksha@kcpartners.com</p>
+                  <p className="text-sm font-medium">Adarsh Pawar</p>
+                  <p className="text-xs text-muted-foreground">Adarsh@kcpartners.com</p>
                 </div>
               </DropdownMenuLabel>
               <DropdownMenuSeparator />

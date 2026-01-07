@@ -79,7 +79,7 @@ export default function DashboardPage() {
           <div>
             <h1 className="text-[24px] font-normal text-foreground">
               Hey, Good Morning{" "}
-              <span className="text-black font-bold">Diksha!</span>
+              <span className="text-black font-bold">Adarsh!</span>
             </h1>
           </div>
           <div className="flex items-center gap-3 xl:hidden">
