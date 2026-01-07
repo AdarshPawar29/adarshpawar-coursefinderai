@@ -11,7 +11,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Search, Bell, ChevronDown, LogOut, Settings, User } from "lucide-react";
+import { Search, ChevronDown, LogOut, Settings, User } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -82,9 +82,21 @@ export function Header() {
             className="relative h-11 w-11 rounded-lg border border-white/20 bg-primary hover:bg-white/10 text-white"
             aria-label="Notifications"
           >
-            <Bell className="h-5 w-5" />
+            <Image
+              src="/assets/icons/Ring.svg"
+              alt="Notifications"
+              width={24}
+              height={24}
+              className="h-6 w-6"
+            />
             {/* Notification Badge */}
-            <span className="absolute top-2.5 right-2.5 h-2.5 w-2.5 rounded-full bg-[#FF1A2F] ring-2 ring-[#226CF5]" />
+            <Image
+              src="/assets/icons/notification.svg"
+              alt="2 notifications"
+              width={16}
+              height={16}
+              className="absolute top-2 right-2 h-4 w-4"
+            />
           </Button>
 
           {/* User Menu */}
