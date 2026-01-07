@@ -6,8 +6,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -47,38 +47,66 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
+  --radius: 0.25rem;
+  
+  /* Figma Design Color Palette */
+  --background: #F8F9FB;
+  --foreground: #1A1A1A;
+  --card: #FFFFFF;
+  --card-foreground: #1A1A1A;
+  --popover: #FFFFFF;
+  --popover-foreground: #1A1A1A;
+  
+  /* Primary Blue - from Figma */
+  --primary: #226CF5;
+  --primary-foreground: #FFFFFF;
+  
+  --secondary: #F1F5F9;
+  --secondary-foreground: #1A1A1A;
+  --muted: #F1F5F9;
+  --muted-foreground: #666666;
+  --accent: #F1F5F9;
+  --accent-foreground: #1A1A1A;
+  --destructive: #DB4437;
+  --border: #EBEBEB;
+  --input: #EBEBEB;
+  --ring: #226CF5;
+  
+  /* Chart colors */
+  --chart-1: #226CF5;
+  --chart-2: #0F9D58;
+  --chart-3: #F4B400;
+  --chart-4: #DB4437;
+  --chart-5: #8B5CF6;
+  
+  /* Sidebar - Figma Design */
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #666666;
+  --sidebar-primary: #226CF5;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #226CF5;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: #EBEBEB;
+  --sidebar-ring: #226CF5;
+  
+  /* Header - Figma Design */
+  --header-bg: #226CF5;
+  
+  /* Stat Cards - Figma Design */
+  --stat-blue: #E9F0FE;
+  --stat-blue-border: #226CF5;
+  --stat-green: #E7F6EC;
+  --stat-green-border: #0F9D58;
+  --stat-yellow: #FEF7E0;
+  --stat-yellow-border: #F4B400;
+  --stat-red: #FEEAE6;
+  --stat-red-border: #DB4437;
+  
+  /* Status colors */
+  --success: #0F9D58;
+  --warning: #F4B400;
+  --danger: #DB4437;
+  --info: #226CF5;
 }
 
 .dark {
@@ -122,4 +150,21 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Global scrollbar hiding */
+* {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Hide shadcn/ui ScrollArea scrollbars */
+[data-slot="scroll-area-scrollbar"] {
+  display: none !important;
 }

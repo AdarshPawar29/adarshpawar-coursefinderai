@@ -1,36 +1,133 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# coursefinder.ai Dashboard
 
-## Getting Started
+A modern, responsive dashboard application for managing student applications and overseas education services. Built with Next.js 16, TailwindCSS v4, and shadcn/ui components.
 
-First, run the development server:
+## 🎨 Design Implementation
+
+This dashboard is a pixel-perfect implementation of the Figma design, featuring:
+
+- **Three-column dashboard layout** (Sidebar | Main Content | Right Panel)
+- **Deep blue header** with search, notifications, and user profile
+- **Collapsible sidebar** with navigation items and expandable groups
+- **Colorful stat cards** - Blue, Green, Yellow, Red variants
+- **Applications table** with tabs and sorting
+- **Promotional banner** with gradient styling
+- **Right panel** with News, Events, Quick Links, and Contacts
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18.x or higher
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd coursefinder
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+### Building for Production
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run build
+npm run start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Framework:** Next.js 16 (App Router)
+- **Styling:** TailwindCSS v4
+- **Component Library:** shadcn/ui
+- **Icons:** Lucide React
+- **Language:** TypeScript
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📁 Project Structure
 
-## Learn More
+```
+coursefinder/
+├── app/
+│   ├── globals.css      # Global styles and design tokens
+│   ├── layout.tsx       # Root layout with metadata
+│   └── page.tsx         # Main dashboard page
+├── components/
+│   ├── dashboard/       # Dashboard-specific components
+│   │   ├── ApplicationsTable.tsx
+│   │   ├── ContactSection.tsx
+│   │   ├── FilterBar.tsx
+│   │   ├── NewsBulletin.tsx
+│   │   ├── PromoBanner.tsx
+│   │   ├── QuickLinks.tsx
+│   │   ├── StatCards.tsx
+│   │   └── UpcomingEvents.tsx
+│   ├── layout/          # Layout components
+│   │   ├── DashboardLayout.tsx
+│   │   ├── Header.tsx
+│   │   └── Sidebar.tsx
+│   └── ui/              # shadcn/ui components
+├── lib/
+│   └── utils.ts         # Utility functions
+└── public/              # Static assets
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 📱 Responsive Design
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The dashboard is fully responsive:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Desktop (1280px+):** Full three-column layout
+- **Tablet (768px-1279px):** Sidebar collapses, right panel hidden
+- **Mobile (<768px):** Hamburger menu, single column layout
 
-## Deploy on Vercel
+## ♿ Accessibility
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Semantic HTML elements
+- ARIA labels for interactive elements
+- Keyboard navigation support
+- Focus states for all interactive components
+- Color contrast compliance
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🌐 Browser Compatibility
+
+Tested and compatible with:
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## 🎯 Features
+
+### Navigation
+- Collapsible sidebar with smooth animations
+- Active state highlighting
+- Expandable menu groups
+
+### Dashboard Widgets
+- **Stat Cards:** Real-time statistics with color coding
+- **Filter Bar:** Multiple dropdown filters
+- **Applications Table:** Sortable, paginated data table
+- **News Bulletin:** Carousel with navigation
+- **Events Card:** Upcoming events with registration
+- **Quick Links:** External resource links
+- **Contact Section:** Regional manager contacts
+
+## 📝 License
+
+This project is for demonstration purposes.
+
+---
+
+Built with ❤️ using Next.js and shadcn/ui
