@@ -1,75 +1,170 @@
-import { Calendar, Clock, MapPin } from "lucide-react";
+"use client";
+
+import { useState, useEffect, useRef } from "react";
+import { ChevronLeft, ChevronRight, Building2, User } from "lucide-react";
 
 interface Event {
   id: number;
   title: string;
   date: string;
   time: string;
+  period: string; // AM/PM
   location: string;
-  imageUrl?: string;
+  organizer: string;
+  image: string;
 }
 
-const upcomingEvent: Event = {
-  id: 1,
-  title: "Study Abroad Fair 2024",
-  date: "January 15, 2024",
-  time: "10:00 AM - 4:00 PM",
-  location: "New Delhi Convention Center",
-  imageUrl: "/event-placeholder.jpg",
-};
+const events: Event[] = [
+  {
+    id: 1,
+    title: "Event Name Goes here",
+    date: "7 Jan 2023",
+    time: "4:30",
+    period: "PM",
+    location: "University of New York",
+    organizer: "Kishori Gupta",
+    image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=2670&auto=format&fit=crop",
+  },
+  {
+    id: 2,
+    title: "Design Workshop 2023",
+    date: "12 Feb 2023",
+    time: "10:00",
+    period: "AM",
+    location: "Design Institute, London",
+    organizer: "Sarah Jenkins",
+    image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=2670&auto=format&fit=crop",
+  },
+  {
+    id: 3,
+    title: "Tech Summit Global",
+    date: "15 Mar 2023",
+    time: "09:00",
+    period: "AM",
+    location: "Convention Center, SF",
+    organizer: "Michael Chen",
+    image: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?q=80&w=2670&auto=format&fit=crop",
+  },
+];
 
 export function UpcomingEvents() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
+
+  const startTimer = () => {
+    timerRef.current = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % events.length);
+    }, 3000);
+  };
+
+  const stopTimer = () => {
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+      timerRef.current = null;
+    }
+  };
+
+  useEffect(() => {
+    startTimer();
+    return () => stopTimer();
+  }, []);
+
+  const handlePrev = () => {
+    stopTimer();
+    setCurrentIndex((prev) => (prev - 1 + events.length) % events.length);
+    startTimer();
+  };
+
+  const handleNext = () => {
+    stopTimer();
+    setCurrentIndex((prev) => (prev + 1) % events.length);
+    startTimer();
+  };
+
+  const currentEvent = events[currentIndex];
+
   return (
-    <div className="bg-white rounded-lg shadow-[0_2px_12px_rgba(0,0,0,0.06)] overflow-hidden">
+    <div
+      className="w-full bg-white rounded-[8px] p-5 shadow-[0px_1px_20px_rgba(0,0,0,0.06)]"
+      onMouseEnter={stopTimer}
+      onMouseLeave={startTimer}
+    >
       {/* Header */}
-      <div className="px-4 pt-4 pb-3">
-        <h3 className="text-[14px] font-semibold text-[#1A1A1A]">Upcoming Events</h3>
-      </div>
-      
-      {/* Event Image - Gradient placeholder */}
-      <div className="relative h-28 mx-4 rounded-lg overflow-hidden bg-gradient-to-br from-[#226CF5] to-[#1B5AD4]">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-white/80">
-            <svg
-              className="mx-auto h-10 w-10"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1.5}
-                d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"
-              />
-            </svg>
-          </div>
+      <div className="flex justify-between items-center mb-4">
+        <h3 className="text-[18px] font-bold text-[#1A1A1A]">Upcoming Events</h3>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={handlePrev}
+            className="flex items-center justify-center w-[24px] h-[24px] rounded-full border border-[#EBEBEB] hover:bg-gray-50 transition-colors group"
+          >
+            <ChevronLeft
+              className="w-3 h-3 text-[#939393] group-hover:text-[#3B3B3B]"
+              strokeWidth={2.5}
+            />
+          </button>
+          <button
+            onClick={handleNext}
+            className="flex items-center justify-center w-[24px] h-[24px] rounded-full border border-[#EBEBEB] hover:bg-gray-50 transition-colors group"
+          >
+            <ChevronRight
+              className="w-3 h-3 text-[#263238] group-hover:text-[#3B3B3B]"
+              strokeWidth={2.5}
+            />
+          </button>
         </div>
       </div>
-      
-      {/* Event Details */}
-      <div className="p-4 space-y-3">
-        <h4 className="text-[14px] font-semibold text-[#1A1A1A]">{upcomingEvent.title}</h4>
-        
-        <div className="space-y-2">
-          <div className="flex items-center gap-2">
-            <Calendar className="h-3.5 w-3.5 text-[#226CF5]" />
-            <span className="text-[12px] text-[#666666]">{upcomingEvent.date}</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Clock className="h-3.5 w-3.5 text-[#226CF5]" />
-            <span className="text-[12px] text-[#666666]">{upcomingEvent.time}</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <MapPin className="h-3.5 w-3.5 text-[#226CF5]" />
-            <span className="text-[12px] text-[#666666]">{upcomingEvent.location}</span>
-          </div>
-        </div>
-        
-        <button className="w-full h-9 bg-[#226CF5] hover:bg-[#1B5AD4] text-white text-[13px] font-medium rounded-lg transition-colors">
-          Register Now
-        </button>
+
+      {/* Image */}
+      <div className="w-full h-[158px] mb-[18px] overflow-hidden rounded-[8px]">
+        <img
+          src={currentEvent.image}
+          alt={currentEvent.title}
+          className="w-full h-full object-cover"
+        />
       </div>
+
+      {/* Title, Date & Time */}
+      <div className="flex justify-between items-start mb-4">
+        <div>
+          <h4 className="text-[16px] font-bold text-[#3B3B3B] mb-1 leading-tight">
+            {currentEvent.title}
+          </h4>
+          <p className="text-[13px] font-medium text-[#939393]">
+            {currentEvent.date}
+          </p>
+        </div>
+
+        {/* Time Badge */}
+        <div className="flex flex-col items-center justify-center bg-[#EFF2F5] rounded-[6px] min-w-[53px] h-[43px]">
+          <span className="text-[14px] font-bold text-[#3B3B3B] leading-none mb-0.5">
+            {currentEvent.time}
+          </span>
+          <span className="text-[10px] font-medium text-[#939393] uppercase leading-none">
+            {currentEvent.period}
+          </span>
+        </div>
+      </div>
+
+      {/* Details */}
+      <div className="flex flex-col gap-3 mb-6">
+        <div className="flex items-center gap-3">
+          <Building2 className="w-4 h-4 text-[#939393]" strokeWidth={2} />
+          <span className="text-[13px] font-medium text-[#3B3B3B]">
+            {currentEvent.location}
+          </span>
+        </div>
+        <div className="flex items-center gap-3">
+          <User className="w-4 h-4 text-[#939393]" strokeWidth={2} />
+          <span className="text-[13px] font-medium text-[#3B3B3B]">
+            By <span className="text-[#3B3B3B]">{currentEvent.organizer}</span>
+          </span>
+        </div>
+      </div>
+
+      {/* Button */}
+      <button className="w-full h-[40px] bg-[#226CF5] hover:bg-[#1B5AD4] text-white text-[14px] font-semibold rounded-[3px] transition-colors">
+        Register Now
+      </button>
     </div>
   );
 }
