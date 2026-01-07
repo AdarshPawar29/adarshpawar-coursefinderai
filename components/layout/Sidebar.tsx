@@ -171,7 +171,7 @@ export function Sidebar() {
 
           <div className="p-3">
             <Link
-              href="#"
+              href="/feedback"
               className="flex items-center gap-3 px-4 py-3 rounded-lg text-[14px] font-normal text-[#666666] hover:bg-[#F5F5F5] hover:text-[#1A1A1A] transition-all duration-200"
             >
               <Image
