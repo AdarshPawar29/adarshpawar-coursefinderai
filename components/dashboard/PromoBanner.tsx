@@ -1,57 +1,140 @@
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
+"use client";
+
+import { ArrowRight, BookOpen, Search, Sparkles } from "lucide-react";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
+
+const slides = [
+  {
+    id: 1,
+    tag: "Allied Services",
+    title: "Overseas Education Loans",
+    description: "Provide end to end overseas education loan assistance to your students to help them achieve their goal",
+    image: "/assets/images/person-with-circle.svg",
+    cta: "Get Started",
+    theme: "blue"
+  },
+  {
+    id: 2,
+    tag: "Allied Services",
+    title: "Student Accommodation",
+    description: "Help your students find the perfect home away from home with our trusted accommodation partners.",
+    image: "/assets/images/person-with-circle.svg",
+    cta: "Explore Now",
+    theme: "blue"
+  },
+  {
+    id: 3,
+    tag: "Allied Services",
+    title: "Forex Assistance",
+    description: "Secure and hassle-free forex solutions for tuition fees and living expenses abroad.",
+    image: "/assets/images/person-with-circle.svg",
+    cta: "Learn More",
+    theme: "blue"
+  }
+];
 
 export function PromoBanner() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-[#1E3A5F] to-[#2B5278] p-6 lg:p-8">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <svg className="h-full w-full" viewBox="0 0 400 400">
-          <defs>
-            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-              <circle cx="20" cy="20" r="2" fill="white" />
-            </pattern>
-          </defs>
-          <rect fill="url(#grid)" width="100%" height="100%" />
-        </svg>
+    <div className="w-full">
+      <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-[#00173F] via-[#0A2A66] to-[#226CF5] h-[300px]">
+        
+
+
+        <div 
+          className="h-full flex transition-transform duration-700 ease-in-out"
+          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+        >
+          {slides.map((slide) => (
+            <div key={slide.id} className="min-w-full h-full flex items-center justify-between px-8 lg:px-12 relative">
+              {/* Left Content */}
+              <div className="max-w-[50%] z-10 space-y-4">
+                <div className="inline-block">
+                  <span className="text-white text-sm font-medium tracking-wide">
+                    {slide.tag}
+                  </span>
+                </div>
+                <h2 className="text-3xl lg:text-4xl font-bold text-white leading-tight">
+                  {slide.title}
+                </h2>
+                <p className="text-white/80 text-sm lg:text-base leading-relaxed max-w-md">
+                  {slide.description}
+                </p>
+                <div className="pt-2">
+                  <button className="bg-white text-[#0B46A8] hover:bg-gray-50 px-6 py-2.5 rounded-[4px] font-semibold text-sm transition-colors duration-200">
+                    {slide.cta}
+                  </button>
+                </div>
+              </div>
+
+              {/* Right Image Composition */}
+              <div className="relative h-full w-[45%] flex items-center justify-center">
+                
+                {/* Main Blue Circle Container */}
+                <div className="relative w-64 h-64 lg:w-[18rem] lg:h-[18rem] bg-[#226CF5] rounded-full flex items-end justify-center overflow-visible mt-8 lg:mt-12">
+                  
+                  {/* The Person Image */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                     <Image 
+                        src={slide.image} 
+                        alt="Promo Illustration" 
+                        fill
+                        className="object-contain scale-110" 
+                        priority={slide.id === 1}
+                     />
+                  </div>
+
+                  {/* Decorative Floating Elements */}
+                  
+                  {/* Search Icon - Top Right */}
+                  <div className="absolute -right-2 top-10 bg-white p-3 rounded-full shadow-lg z-20">
+                    <Search className="w-6 h-6 text-[#00173F]" strokeWidth={2.5} />
+                  </div>
+
+                  {/* Book Icon - Bottom Left */}
+                  <div className="absolute -left-4 bottom-16 bg-[#FFF8E7] p-3 rounded-full shadow-lg z-20 border-2 border-white">
+                    <BookOpen className="w-6 h-6 text-[#00173F]" strokeWidth={2.5} />
+                  </div>
+
+                  {/* Sparkles/Stars */}
+                  <Sparkles className="absolute top-6 left-6 text-white w-6 h-6 fill-white/80 animate-pulse" />
+                  <Sparkles className="absolute bottom-10 right-4 text-white w-5 h-5 fill-white/80" />
+                  <div className="absolute top-4 right-16 text-white w-2.5 h-2.5 bg-white rounded-full opacity-60" />
+
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
       </div>
 
-      <div className="relative flex flex-col lg:flex-row items-center justify-between gap-6">
-        <div className="space-y-4 text-center lg:text-left">
-          <span className="inline-block px-3 py-1 text-[11px] font-medium bg-[#226CF5] text-white rounded-full uppercase tracking-wider">
-            Allied Services
-          </span>
-          <h3 className="text-2xl lg:text-3xl font-bold text-white">
-            Overseas Education Loans
-          </h3>
-          <p className="text-[14px] text-white/70 max-w-md leading-relaxed">
-            Help your students get the financial support they need for their international education journey with our partner banks.
-          </p>
-          <Link href="#" className="inline-flex items-center gap-2 h-10 px-6 bg-white text-[#1E3A5F] text-[13px] font-semibold rounded-lg hover:bg-white/90 transition-colors">
-            Get Started
-            <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
-
-        {/* Illustration */}
-        <div className="relative hidden lg:flex items-center justify-center">
-          <div className="w-40 h-40 relative">
-            {/* Decorative circles */}
-            <div className="absolute inset-0 rounded-full border-2 border-white/20" />
-            <div className="absolute inset-4 rounded-full border-2 border-white/15" />
-            <div className="absolute inset-8 rounded-full bg-white/10 flex items-center justify-center">
-              {/* Person illustration placeholder */}
-              <svg
-                className="w-12 h-12 text-white/60"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-              </svg>
-            </div>
-          </div>
-        </div>
+      {/* Pagination Dots */}
+      <div className="flex justify-center gap-2 mt-4">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentSlide(index)}
+            className={cn(
+              "w-2.5 h-2.5 rounded-full transition-all duration-300",
+              currentSlide === index 
+                ? "bg-[#263238]" 
+                : "bg-[#D8DBDD]"
+            )}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
       </div>
     </div>
   );
