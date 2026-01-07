@@ -2,7 +2,7 @@
 
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -107,12 +107,15 @@ export function Header() {
                 className="flex items-center gap-3 text-white hover:bg-white/10 hover:text-white px-2 pr-4 h-14 rounded-xl"
               >
                 {/* Profile Frame / Avatar - Rounded Square */}
-                <Avatar className="h-11 w-11 rounded-lg border border-white/20">
-                  <AvatarImage src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D" alt="User avatar" className="object-cover" />
-                  <AvatarFallback className="bg-white/25 text-white text-sm font-medium rounded-lg">
-                    DG
-                  </AvatarFallback>
-                </Avatar>
+                <div className="relative h-11 w-11 rounded-lg border border-white/20 overflow-hidden shrink-0">
+                  <Image 
+                    src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D" 
+                    alt="User avatar" 
+                    fill 
+                    className="object-cover"
+                    sizes="44px"
+                  />
+                </div>
                 
                 <div className="hidden lg:flex flex-col items-start gap-0.5">
                   <span className="text-[14px] font-medium leading-none">Adarsh Pawar</span>

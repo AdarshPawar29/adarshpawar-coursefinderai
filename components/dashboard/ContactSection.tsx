@@ -1,4 +1,5 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+
+import Image from "next/image";
 
 interface ContactPerson {
   id: number;
@@ -61,12 +62,21 @@ export function ContactSection() {
           >
             {/* Top Section: Avatar & Info */}
             <div className="p-4 flex items-center gap-4">
-              <Avatar className="h-[50px] w-[50px] border border-gray-100">
-                <AvatarImage src={contact.avatarUrl} alt={contact.name} />
-                <AvatarFallback className="bg-[#E9F0FE] text-[#226CF5] text-[16px] font-bold">
-                  {contact.initials}
-                </AvatarFallback>
-              </Avatar>
+              <div className="relative h-[50px] w-[50px] overflow-hidden rounded-full border border-gray-100 shrink-0">
+                {contact.avatarUrl ? (
+                  <Image
+                    src={contact.avatarUrl}
+                    alt={contact.name}
+                    fill
+                    className="object-cover"
+                    sizes="50px"
+                  />
+                ) : (
+                  <div className="flex h-full w-full items-center justify-center bg-[#E9F0FE] text-[#226CF5] text-[16px] font-bold">
+                    {contact.initials}
+                  </div>
+                )}
+              </div>
               
               <div className="flex flex-col gap-0.5">
                 <p className="text-[15px] font-semibold text-[#226CF5] leading-tight">
