@@ -46,6 +46,21 @@ const statsData = [
 function RightPanel() {
   return (
     <div className="space-y-5">
+      <div className="flex gap-2">
+        <Button 
+          variant="outline" 
+          className="flex-1 gap-2 border-primary text-primary hover:bg-primary/5 hover:text-primary px-2"
+        >
+          <RefreshCw className="h-4 w-4" />
+          <span>Refresh</span>
+        </Button>
+        <Button 
+          className="flex-1 gap-2 bg-primary hover:bg-primary/90 px-2"
+        >
+          <UserPlus className="h-4 w-4" />
+          <span>Register</span>
+        </Button>
+      </div>
       <NewsBulletin />
       <UpcomingEvents />
       <QuickLinks />
@@ -66,11 +81,8 @@ export default function DashboardPage() {
               Hey, Good Morning{" "}
               <span className="text-primary font-medium">Diksha!</span>
             </h1>
-            <p className="text-[14px] text-muted-foreground mt-1">
-              Here&apos;s what&apos;s happening with your applications today.
-            </p>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 xl:hidden">
             <Button 
               variant="outline" 
               className="gap-2 border-primary text-primary hover:bg-primary/5 hover:text-primary"

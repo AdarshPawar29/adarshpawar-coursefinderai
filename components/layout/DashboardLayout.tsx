@@ -26,7 +26,7 @@ export function DashboardLayout({ children, rightPanel }: DashboardLayoutProps) 
 
         {/* Right Panel - Hidden on smaller screens */}
         {rightPanel && (
-          <aside className="hidden xl:block w-[320px] 2xl:w-[360px] bg-[#F8F9FB] overflow-y-auto border-l border-[#EBEBEB]">
+          <aside className="hidden xl:block w-[320px] 2xl:w-[360px] bg-[#F8F9FB] overflow-y-auto">
             <div className="p-5">
               {rightPanel}
             </div>
