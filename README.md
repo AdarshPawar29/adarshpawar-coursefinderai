@@ -1,40 +1,43 @@
-# coursefinder.ai Dashboard
+# CourseFinder Dashboard
 
-A modern, responsive dashboard application for managing student applications and overseas education services. Built with Next.js 16, TailwindCSS v4, and shadcn/ui components.
+A modern, responsive dashboard designed for education counselors to manage student applications and overseas education services efficiently.
 
-## 🎨 Design Implementation
+## 👥 Who Can Access This Application?
 
-This dashboard is a pixel-perfect implementation of the Figma design, featuring:
+This application is designed for **Education Counselors and Administrators**. 
+- It provides a centralized view for tracking student applications.
+- **Immediate Access**: Currently, this is a demonstration build open for review. No authentication is enforced for this demo version, allowing you to explore the full layout and features immediately specifically as an Admin user persona.
 
-- **Three-column dashboard layout** (Sidebar | Main Content | Right Panel)
-- **Deep blue header** with search, notifications, and user profile
-- **Collapsible sidebar** with navigation items and expandable groups
-- **Colorful stat cards** - Blue, Green, Yellow, Red variants
-- **Applications table** with tabs and sorting
-- **Promotional banner** with gradient styling
-- **Right panel** with News, Events, Quick Links, and Contacts
+## 🌟 Key Features
+
+### Core Capabilities
+- **Server-Side Rendering (SSR)**: Built with Next.js 16, utilizing SSR for fast initial page loads and improved SEO performance.
+- **Advanced Metadata**: Implements the Next.js Metadata API to ensure optimal search engine visibility and social sharing capabilities.
+- **Responsive Layout**: Adapts seamlessly to Desktop, Tablet, and Mobile devices using a 3-column architecture that collapses intelligently.
+
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 16 (App Router)
+- **Styling**: TailwindCSS v4
+- **UI Components**: shadcn/ui
+- **Icons**: Lucide React & Custom SVGs
+- **Language**: TypeScript
 
 ## 🚀 Getting Started
 
-### Prerequisites
-
-- Node.js 18.x or higher
-- npm or yarn
-
-### Installation
-
-1. Clone the repository:
+1. **Clone the repository**:
    ```bash
    git clone <repository-url>
    cd coursefinder
    ```
 
-2. Install dependencies:
+2. **Install dependencies**:
    ```bash
    npm install
    ```
 
-3. Run the development server:
+3. **Run the development server**:
    ```bash
    npm run dev
    ```
