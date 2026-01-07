@@ -16,7 +16,7 @@ const quickLinks: QuickLink[] = [
 export function QuickLinks() {
   return (
     <div className="w-full">
-      <h3 className="text-[18px] font-bold text-[#3B3B3B] mb-5">Quick Links</h3>
+      <h2 className="text-[18px] font-bold text-[#3B3B3B] mb-5">Quick Links</h2>
       <ul className="flex flex-col gap-3">
         {quickLinks.map((link) => (
           <li key={link.title}>

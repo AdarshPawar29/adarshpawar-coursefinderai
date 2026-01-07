@@ -92,12 +92,12 @@ export function UpcomingEvents() {
     >
       {/* Header */}
       <div className="flex justify-between items-center mb-4">
-        <h3 className="text-[18px] font-bold text-[#1A1A1A]">Upcoming Events</h3>
+        <h2 className="text-[18px] font-bold text-[#1A1A1A]">Upcoming Events</h2>
         <div className="flex items-center gap-2">
           <button
             onClick={handlePrev}
             aria-label="Previous event"
-            className="flex items-center justify-center w-[24px] h-[24px] rounded-full border border-[#EBEBEB] hover:bg-gray-50 transition-colors group"
+            className="flex items-center justify-center w-8 h-8 rounded-full border border-[#EBEBEB] hover:bg-gray-50 transition-colors group"
           >
             <ChevronLeft
               className="w-3 h-3 text-[#717171] group-hover:text-[#3B3B3B]"
@@ -107,7 +107,7 @@ export function UpcomingEvents() {
           <button
             onClick={handleNext}
             aria-label="Next event"
-            className="flex items-center justify-center w-[24px] h-[24px] rounded-full border border-[#EBEBEB] hover:bg-gray-50 transition-colors group"
+            className="flex items-center justify-center w-8 h-8 rounded-full border border-[#EBEBEB] hover:bg-gray-50 transition-colors group"
           >
             <ChevronRight
               className="w-3 h-3 text-[#263238] group-hover:text-[#3B3B3B]"

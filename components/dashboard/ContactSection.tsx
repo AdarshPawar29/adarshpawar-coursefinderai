@@ -48,9 +48,9 @@ export function ContactSection() {
   return (
     <div className="flex flex-col">
       {/* Header */}
-      <h3 className="text-[16px] font-bold text-[#3B3B3B] mb-4">
+      <h2 className="text-[16px] font-bold text-[#3B3B3B] mb-4">
         Contact Regional Manager
-      </h3>
+      </h2>
       
       {/* Contacts List */}
       <div className="flex flex-col gap-4">

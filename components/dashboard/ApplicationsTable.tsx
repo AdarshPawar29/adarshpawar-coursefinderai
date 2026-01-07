@@ -250,7 +250,7 @@ export function ApplicationsTable() {
       <div className="px-5 pt-6 pb-4 flex justify-between items-center">
         <h2 className="text-[18px] font-bold text-[#3B3B3B]">Applications</h2>
         <button 
-          className="text-[#717171] hover:text-[#3B3B3B] transition-colors"
+          className="text-[#717171] hover:text-[#3B3B3B] transition-colors h-8 w-8 flex items-center justify-center rounded-full hover:bg-gray-100"
           aria-label="Maximize table"
         >
           <Maximize2 className="h-4 w-4" />
@@ -266,11 +266,11 @@ export function ApplicationsTable() {
           className={cn(
             "px-3 py-1.5 rounded-[4px] text-[14px] font-semibold transition-colors flex items-center gap-2",
             activeTab === "pending"
-              ? "bg-[#EBF2FF] text-[#226CF5]"
+              ? "bg-[#EBF2FF] text-[#1A56C9]"
               : "bg-transparent text-[#3B3B3B] hover:bg-gray-50"
           )}
         >
-          Pending On Me <span className={cn("text-[14px]", activeTab === "pending" ? "text-[#226CF5]" : "text-[#3B3B3B]")}>(15)</span>
+          Pending On Me <span className={cn("text-[14px]", activeTab === "pending" ? "text-[#1A56C9]" : "text-[#3B3B3B]")}>(15)</span>
         </button>
         <button
           role="tab"
@@ -279,7 +279,7 @@ export function ApplicationsTable() {
           className={cn(
             "px-3 py-1.5 rounded-[4px] text-[14px] font-medium transition-colors flex items-center gap-2",
             activeTab === "lorem1"
-              ? "bg-[#EBF2FF] text-[#226CF5]"
+              ? "bg-[#EBF2FF] text-[#1A56C9]"
               : "bg-transparent text-[#3B3B3B] hover:bg-gray-50"
           )}
         >
@@ -292,7 +292,7 @@ export function ApplicationsTable() {
           className={cn(
             "px-3 py-1.5 rounded-[4px] text-[14px] font-medium transition-colors flex items-center gap-2",
             activeTab === "lorem2"
-              ? "bg-[#EBF2FF] text-[#226CF5]"
+              ? "bg-[#EBF2FF] text-[#1A56C9]"
               : "bg-transparent text-[#3B3B3B] hover:bg-gray-50"
           )}
         >

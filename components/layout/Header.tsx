@@ -61,7 +61,7 @@ export function Header() {
           <Button
             variant="ghost"
             size="sm"
-            className="hidden sm:flex items-center gap-2 text-white hover:bg-white/15 hover:text-white h-9 px-3"
+            className="hidden sm:flex items-center gap-2 text-white hover:bg-white/15 hover:text-white h-10 px-3"
             aria-label="What's New"
           >
             <Image

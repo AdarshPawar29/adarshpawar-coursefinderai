@@ -176,10 +176,11 @@ export function Sidebar() {
             >
               <Image
                 src="/assets/icons/Submit feedback.svg"
-                alt="Submit feedback"
+                alt=""
                 width={20}
                 height={20}
                 className="h-5 w-5"
+                aria-hidden="true"
               />
               Submit feedback
             </Link>

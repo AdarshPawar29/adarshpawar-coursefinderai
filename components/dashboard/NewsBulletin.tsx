@@ -51,7 +51,7 @@ export function NewsBulletin() {
       onMouseLeave={() => setIsPaused(false)}
     >
       {/* Header */}
-      <h3 className="text-[16px] font-bold text-[#3B3B3B] mb-6">News Bulletin</h3>
+      <h2 className="text-[16px] font-bold text-[#3B3B3B] mb-6">News Bulletin</h2>
       
       {/* Content */}
       <div className="flex-1 flex gap-4">

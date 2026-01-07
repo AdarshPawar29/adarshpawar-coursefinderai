@@ -11,22 +11,22 @@ interface StatCardProps {
 const variantStyles = {
   blue: {
     bg: "bg-[#D5E3FF]",
-    text: "text-[#226CF5]",
+    text: "text-[#1048B5]", // Darkened for accessibility
     pillBorder: "border-[#9CBDFB]",
   },
   green: {
     bg: "bg-[#EBFFEF]",
-    text: "text-[#41A155]",
+    text: "text-[#246B34]", // Darkened for accessibility
     pillBorder: "border-[#B3EDC0]",
   },
   yellow: {
     bg: "bg-[#FFF6DB]",
-    text: "text-[#EBB925]",
+    text: "text-[#997200]", // Darkened for accessibility
     pillBorder: "border-[#FEE598]",
   },
   red: {
     bg: "bg-[#FFF0F2]",
-    text: "text-[#FF2E42]",
+    text: "text-[#D31225]", // Darkened for accessibility
     pillBorder: "border-[#FDCED5]",
   },
   gray: {
@@ -49,9 +49,9 @@ export function StatCard({ value, label, description, variant }: StatCardProps) 
         )}
       >
         <div className="space-y-1 mb-2">
-          <h3 className={cn("text-[32px] font-bold leading-none tracking-tight", styles.text)}>
+          <div className={cn("text-[32px] font-bold leading-none tracking-tight", styles.text)}>
             {value}
-          </h3>
+          </div>
           <p className={cn("text-[14px] font-medium opacity-90", styles.text)}>
             {label}
           </p>
