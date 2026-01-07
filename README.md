@@ -2,20 +2,6 @@
 
 A modern, responsive dashboard designed for education counselors to manage student applications and overseas education services efficiently.
 
-## 👥 Who Can Access This Application?
-
-This application is designed for **Education Counselors and Administrators**. 
-- It provides a centralized view for tracking student applications.
-- **Immediate Access**: Currently, this is a demonstration build open for review. No authentication is enforced for this demo version, allowing you to explore the full layout and features immediately specifically as an Admin user persona.
-
-## 🌟 Key Features
-
-### Core Capabilities
-- **Server-Side Rendering (SSR)**: Built with Next.js 16, utilizing SSR for fast initial page loads and improved SEO performance.
-- **Advanced Metadata**: Implements the Next.js Metadata API to ensure optimal search engine visibility and social sharing capabilities.
-- **Responsive Layout**: Adapts seamlessly to Desktop, Tablet, and Mobile devices using a 3-column architecture that collapses intelligently.
-
-
 ## 🛠️ Tech Stack
 
 - **Framework**: Next.js 16 (App Router)
@@ -86,6 +72,13 @@ coursefinder/
 │   └── utils.ts         # Utility functions
 └── public/              # Static assets
 ```
+
+## 🌟 Key Features
+
+### Core Capabilities
+- **Server-Side Rendering (SSR)**: Built with Next.js 16, utilizing SSR for fast initial page loads and improved SEO performance.
+- **Advanced Metadata**: Implements the Next.js Metadata API to ensure optimal search engine visibility and social sharing capabilities.
+- **Responsive Layout**: Adapts seamlessly to Desktop, Tablet, and Mobile devices using a 3-column architecture that collapses intelligently.
 
 ## 📱 Responsive Design
 
