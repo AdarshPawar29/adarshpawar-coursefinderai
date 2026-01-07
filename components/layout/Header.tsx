@@ -20,7 +20,7 @@ export function Header() {
     <header className="relative z-50 h-[76px] bg-primary shadow-[0px_0px_16px_rgba(34,108,245,0.08)] border-b border-white/10">
       <div className="flex h-full items-center justify-between px-4 lg:px-6">
         {/* Left Section: Logo & Search */}
-        <div className="flex items-center flex-1 gap-8 lg:gap-12">
+        <div className="flex items-center flex-1 gap-8 lg:gap-28">
           {/* Logo */}
           <div className="flex items-center gap-3">
             {/* Mobile menu spacer */}
