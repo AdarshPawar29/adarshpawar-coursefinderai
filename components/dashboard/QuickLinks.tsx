@@ -27,7 +27,7 @@ export function QuickLinks() {
               <span className="text-[14px] font-semibold text-[#226CF5] underline decoration-[#226CF5] underline-offset-4">
                 {link.title}
               </span>
-              <ExternalLink className="h-4 w-4 text-[#8F9297] transition-colors duration-200 group-hover:text-[#226CF5]" />
+              <ExternalLink className="h-4 w-4 text-[#8F9297] transition-colors duration-200 group-hover:text-[#226CF5]" aria-hidden="true" />
             </Link>
           </li>
         ))}

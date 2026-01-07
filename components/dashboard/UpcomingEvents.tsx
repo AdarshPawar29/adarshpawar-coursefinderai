@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 import { ChevronLeft, ChevronRight, Building2, User } from "lucide-react";
 
 interface Event {
@@ -95,15 +96,17 @@ export function UpcomingEvents() {
         <div className="flex items-center gap-2">
           <button
             onClick={handlePrev}
+            aria-label="Previous event"
             className="flex items-center justify-center w-[24px] h-[24px] rounded-full border border-[#EBEBEB] hover:bg-gray-50 transition-colors group"
           >
             <ChevronLeft
-              className="w-3 h-3 text-[#939393] group-hover:text-[#3B3B3B]"
+              className="w-3 h-3 text-[#717171] group-hover:text-[#3B3B3B]"
               strokeWidth={2.5}
             />
           </button>
           <button
             onClick={handleNext}
+            aria-label="Next event"
             className="flex items-center justify-center w-[24px] h-[24px] rounded-full border border-[#EBEBEB] hover:bg-gray-50 transition-colors group"
           >
             <ChevronRight
@@ -118,7 +121,7 @@ export function UpcomingEvents() {
       <div className="w-full h-[158px] mb-[18px] overflow-hidden rounded-[8px]">
         <img
           src={currentEvent.image}
-          alt={currentEvent.title}
+          alt=""
           className="w-full h-full object-cover"
         />
       </div>
@@ -129,7 +132,7 @@ export function UpcomingEvents() {
           <h4 className="text-[16px] font-bold text-[#3B3B3B] mb-1 leading-tight">
             {currentEvent.title}
           </h4>
-          <p className="text-[13px] font-medium text-[#939393]">
+          <p className="text-[13px] font-medium text-[#717171]">
             {currentEvent.date}
           </p>
         </div>
@@ -139,7 +142,7 @@ export function UpcomingEvents() {
           <span className="text-[14px] font-bold text-[#3B3B3B] leading-none mb-0.5">
             {currentEvent.time}
           </span>
-          <span className="text-[10px] font-medium text-[#939393] uppercase leading-none">
+          <span className="text-[10px] font-medium text-[#717171] uppercase leading-none">
             {currentEvent.period}
           </span>
         </div>
@@ -148,13 +151,13 @@ export function UpcomingEvents() {
       {/* Details */}
       <div className="flex flex-col gap-3 mb-6">
         <div className="flex items-center gap-3">
-          <Building2 className="w-4 h-4 text-[#939393]" strokeWidth={2} />
+          <Building2 className="w-4 h-4 text-[#717171]" strokeWidth={2} aria-hidden="true" />
           <span className="text-[13px] font-medium text-[#3B3B3B]">
             {currentEvent.location}
           </span>
         </div>
         <div className="flex items-center gap-3">
-          <User className="w-4 h-4 text-[#939393]" strokeWidth={2} />
+          <User className="w-4 h-4 text-[#717171]" strokeWidth={2} aria-hidden="true" />
           <span className="text-[13px] font-medium text-[#3B3B3B]">
             By <span className="text-[#3B3B3B]">{currentEvent.organizer}</span>
           </span>
@@ -162,9 +165,9 @@ export function UpcomingEvents() {
       </div>
 
       {/* Button */}
-      <button className="w-full h-[40px] bg-[#226CF5] hover:bg-[#1B5AD4] text-white text-[14px] font-semibold rounded-[3px] transition-colors">
+      <Link href="#" className="flex items-center justify-center w-full h-[40px] bg-[#226CF5] hover:bg-[#1B5AD4] text-white text-[14px] font-semibold rounded-[3px] transition-colors">
         Register Now
-      </button>
+      </Link>
     </div>
   );
 }

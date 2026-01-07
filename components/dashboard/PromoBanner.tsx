@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export function PromoBanner() {
   return (
@@ -26,10 +27,10 @@ export function PromoBanner() {
           <p className="text-[14px] text-white/70 max-w-md leading-relaxed">
             Help your students get the financial support they need for their international education journey with our partner banks.
           </p>
-          <button className="inline-flex items-center gap-2 h-10 px-6 bg-white text-[#1E3A5F] text-[13px] font-semibold rounded-lg hover:bg-white/90 transition-colors">
+          <Link href="#" className="inline-flex items-center gap-2 h-10 px-6 bg-white text-[#1E3A5F] text-[13px] font-semibold rounded-lg hover:bg-white/90 transition-colors">
             Get Started
             <ArrowRight className="h-4 w-4" />
-          </button>
+          </Link>
         </div>
 
         {/* Illustration */}
@@ -44,6 +45,7 @@ export function PromoBanner() {
                 className="w-12 h-12 text-white/60"
                 fill="currentColor"
                 viewBox="0 0 24 24"
+                aria-hidden="true"
               >
                 <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
               </svg>

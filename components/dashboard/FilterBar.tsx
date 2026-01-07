@@ -21,7 +21,7 @@ export function FilterBar({ onApplyFilters }: FilterBarProps) {
       <div className="flex flex-col md:flex-row md:flex-wrap gap-4 md:gap-[17px]">
         {/* Year Filter */}
         <Select>
-          <SelectTrigger className="w-full md:w-[140px] h-[39px] text-[13px] font-medium border-[#EBEBEB] shadow-none rounded-[3.5px] text-[#939393]">
+          <SelectTrigger className="w-full md:w-[140px] h-[39px] text-[13px] font-medium border-[#EBEBEB] shadow-none rounded-[3.5px] text-[#717171]">
             <div className="flex items-center gap-2">
               <Calendar className="h-4 w-4" />
               <SelectValue placeholder="Year" />
@@ -36,7 +36,7 @@ export function FilterBar({ onApplyFilters }: FilterBarProps) {
 
         {/* Date Created Filter */}
         <Select>
-          <SelectTrigger className="w-full md:w-[200px] h-[39px] text-[13px] font-medium border-[#EBEBEB] shadow-none rounded-[3.5px] text-[#939393]">
+          <SelectTrigger className="w-full md:w-[200px] h-[39px] text-[13px] font-medium border-[#EBEBEB] shadow-none rounded-[3.5px] text-[#717171]">
             <div className="flex items-center gap-2">
               <Calendar className="h-4 w-4" />
               <SelectValue placeholder="Date Created" />
@@ -52,7 +52,7 @@ export function FilterBar({ onApplyFilters }: FilterBarProps) {
 
         {/* Intake Filter */}
         <Select>
-          <SelectTrigger className="w-full md:w-[305px] h-[39px] text-[13px] font-medium border-[#EBEBEB] shadow-none rounded-[3.5px] text-[#939393]">
+          <SelectTrigger className="w-full md:w-[305px] h-[39px] text-[13px] font-medium border-[#EBEBEB] shadow-none rounded-[3.5px] text-[#717171]">
             <div className="flex items-center gap-2">
               <Calendar className="h-4 w-4" />
               <SelectValue placeholder="Select intake" />
@@ -70,7 +70,7 @@ export function FilterBar({ onApplyFilters }: FilterBarProps) {
       <div className="flex flex-col md:flex-row md:flex-wrap items-center gap-4 md:gap-[13px]">
         {/* Countries Filter */}
         <Select>
-          <SelectTrigger className="w-full md:w-[331px] h-[39px] text-[13px] font-medium border-[#EBEBEB] shadow-none rounded-[3.5px] text-[#939393]">
+          <SelectTrigger className="w-full md:w-[331px] h-[39px] text-[13px] font-medium border-[#EBEBEB] shadow-none rounded-[3.5px] text-[#717171]">
              <div className="flex items-center gap-2">
               <Landmark className="h-4 w-4" />
               <SelectValue placeholder="Countries" />

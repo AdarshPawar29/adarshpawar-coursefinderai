@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Newspaper } from "lucide-react";
+import Link from "next/link";
 
 interface NewsItem {
   id: number;
@@ -66,11 +67,11 @@ export function NewsBulletin() {
           <h4 className="text-[14px] font-bold text-[#3B3B3B] mb-1.5 leading-tight">
             {currentNews.title}
           </h4>
-          <p className="text-[13px] text-[#939393] leading-relaxed">
+          <p className="text-[13px] text-[#717171] leading-relaxed">
             {currentNews.excerpt}{" "}
-            <button className="text-[#226CF5] hover:underline font-medium inline-block ml-1">
+            <Link href="#" className="text-[#226CF5] hover:underline font-medium inline-block ml-1">
               Read More
-            </button>
+            </Link>
           </p>
         </div>
       </div>

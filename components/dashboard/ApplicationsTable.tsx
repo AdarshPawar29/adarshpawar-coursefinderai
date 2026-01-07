@@ -90,14 +90,19 @@ export function ApplicationsTable() {
       {/* Header */}
       <div className="px-5 pt-6 pb-4 flex justify-between items-center">
         <h2 className="text-[18px] font-bold text-[#3B3B3B]">Applications</h2>
-        <button className="text-[#939393] hover:text-[#3B3B3B] transition-colors">
+        <button 
+          className="text-[#717171] hover:text-[#3B3B3B] transition-colors"
+          aria-label="Maximize table"
+        >
           <Maximize2 className="h-4 w-4" />
         </button>
       </div>
 
       {/* Custom Tabs */}
-      <div className="px-5 flex gap-4 mb-4">
+      <div className="px-5 flex gap-4 mb-4" role="tablist">
         <button
+          role="tab"
+          aria-selected={activeTab === "pending"}
           onClick={() => setActiveTab("pending")}
           className={cn(
             "px-3 py-1.5 rounded-[4px] text-[14px] font-semibold transition-colors flex items-center gap-2",
@@ -109,6 +114,8 @@ export function ApplicationsTable() {
           Pending On Me <span className={cn("text-[14px]", activeTab === "pending" ? "text-[#226CF5]" : "text-[#3B3B3B]")}>(15)</span>
         </button>
         <button
+          role="tab"
+          aria-selected={activeTab === "lorem1"}
           onClick={() => setActiveTab("lorem1")}
           className={cn(
             "px-3 py-1.5 rounded-[4px] text-[14px] font-medium transition-colors flex items-center gap-2",
@@ -120,6 +127,8 @@ export function ApplicationsTable() {
           Lorem Ipsum (12)
         </button>
         <button
+          role="tab"
+          aria-selected={activeTab === "lorem2"}
           onClick={() => setActiveTab("lorem2")}
           className={cn(
             "px-3 py-1.5 rounded-[4px] text-[14px] font-medium transition-colors flex items-center gap-2",
@@ -137,30 +146,30 @@ export function ApplicationsTable() {
         <Table>
           <TableHeader className="bg-[#EBEEF1]">
             <TableRow className="border-none hover:bg-[#EBEEF1]">
-              <TableHead className="w-[140px] text-[#939393] font-medium text-[13px] h-[36px] text-center">
-                <div className="flex items-center justify-center gap-1 cursor-pointer hover:text-[#3B3B3B]">
+              <TableHead className="w-[140px] text-[#717171] font-medium text-[13px] h-[36px] text-center p-0">
+                <button className="flex w-full h-full items-center justify-center gap-1 cursor-pointer hover:text-[#3B3B3B]" aria-label="Sort by acknowledgement number">
                   Ack. no. <ArrowUpDown className="h-3 w-3" />
-                </div>
+                </button>
               </TableHead>
-              <TableHead className="text-[#939393] font-medium text-[13px] h-[36px]">
-                <div className="flex items-center gap-1 cursor-pointer hover:text-[#3B3B3B]">
+              <TableHead className="text-[#717171] font-medium text-[13px] h-[36px] p-0">
+                <button className="flex w-full h-full items-center gap-1 cursor-pointer hover:text-[#3B3B3B] px-4" aria-label="Sort by student name">
                   Student name <ArrowUpDown className="h-3 w-3" />
-                </div>
+                </button>
               </TableHead>
-              <TableHead className="text-[#939393] font-medium text-[13px] h-[36px]">
-                <div className="flex items-center gap-1 cursor-pointer hover:text-[#3B3B3B]">
+              <TableHead className="text-[#717171] font-medium text-[13px] h-[36px] p-0">
+                <button className="flex w-full h-full items-center gap-1 cursor-pointer hover:text-[#3B3B3B] px-4" aria-label="Sort by university">
                   University <ArrowUpDown className="h-3 w-3" />
-                </div>
+                </button>
               </TableHead>
-              <TableHead className="text-[#939393] font-medium text-[13px] h-[36px]">
-                <div className="flex items-center gap-1 cursor-pointer hover:text-[#3B3B3B]">
+              <TableHead className="text-[#717171] font-medium text-[13px] h-[36px] p-0">
+                <button className="flex w-full h-full items-center gap-1 cursor-pointer hover:text-[#3B3B3B] px-4" aria-label="Sort by program">
                   Program <ArrowUpDown className="h-3 w-3" />
-                </div>
+                </button>
               </TableHead>
-              <TableHead className="text-[#939393] font-medium text-[13px] h-[36px] text-center">
-                <div className="flex items-center justify-center gap-1 cursor-pointer hover:text-[#3B3B3B]">
+              <TableHead className="text-[#717171] font-medium text-[13px] h-[36px] text-center p-0">
+                <button className="flex w-full h-full items-center justify-center gap-1 cursor-pointer hover:text-[#3B3B3B]" aria-label="Sort by pending time">
                   Pending Since <ArrowUpDown className="h-3 w-3" />
-                </div>
+                </button>
               </TableHead>
             </TableRow>
           </TableHeader>
@@ -180,7 +189,7 @@ export function ApplicationsTable() {
                     <span className="text-[#3B3B3B] text-[13px] font-medium">
                       {app.studentName}
                     </span>
-                    <span className="text-[#939393] text-[13px]">
+                    <span className="text-[#717171] text-[13px]">
                       {app.studentEmail}
                     </span>
                   </div>
@@ -205,7 +214,7 @@ export function ApplicationsTable() {
                     <span className="text-[#3B3B3B] text-[13px] font-medium">
                       {app.pendingTime}
                     </span>
-                    <span className="text-[#939393] text-[12px]">
+                    <span className="text-[#717171] text-[12px]">
                       {app.pendingDate}
                     </span>
                   </div>
@@ -218,19 +227,35 @@ export function ApplicationsTable() {
 
       {/* Pagination */}
       <div className="flex items-center justify-center gap-2 py-6 mt-auto">
-        <button className="h-8 w-8 flex items-center justify-center text-[#939393] hover:text-[#3B3B3B]">
+        <button 
+          className="h-8 w-8 flex items-center justify-center text-[#939393] hover:text-[#3B3B3B]"
+          aria-label="Previous page"
+        >
           <ChevronLeft className="h-5 w-5" />
         </button>
-        <button className="h-8 w-8 rounded-full bg-white shadow-[0_2px_8px_rgba(0,0,0,0.08)] text-[#3B3B3B] font-bold text-[14px] flex items-center justify-center border border-[#EBEBEB]">
+        <button 
+          className="h-8 w-8 rounded-full bg-white shadow-[0_2px_8px_rgba(0,0,0,0.08)] text-[#3B3B3B] font-bold text-[14px] flex items-center justify-center border border-[#EBEBEB]"
+          aria-label="Page 1"
+          aria-current="page"
+        >
           1
         </button>
-        <button className="h-8 w-8 rounded-full text-[#939393] hover:text-[#3B3B3B] hover:bg-gray-50 text-[14px] font-medium flex items-center justify-center transition-colors">
+        <button 
+          className="h-8 w-8 rounded-full text-[#939393] hover:text-[#3B3B3B] hover:bg-gray-50 text-[14px] font-medium flex items-center justify-center transition-colors"
+          aria-label="Page 2"
+        >
           2
         </button>
-        <button className="h-8 w-8 rounded-full text-[#939393] hover:text-[#3B3B3B] hover:bg-gray-50 text-[14px] font-medium flex items-center justify-center transition-colors">
+        <button 
+          className="h-8 w-8 rounded-full text-[#939393] hover:text-[#3B3B3B] hover:bg-gray-50 text-[14px] font-medium flex items-center justify-center transition-colors"
+          aria-label="Page 3"
+        >
           3
         </button>
-        <button className="h-8 w-8 flex items-center justify-center text-[#226CF5] hover:text-[#1952C1]">
+        <button 
+          className="h-8 w-8 flex items-center justify-center text-[#226CF5] hover:text-[#1952C1]"
+          aria-label="Next page"
+        >
           <ChevronRight className="h-5 w-5" />
         </button>
       </div>

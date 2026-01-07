@@ -44,11 +44,12 @@ export function Header() {
           {/* Search Bar - Fixed width, left aligned */}
           <div className="hidden md:block w-[356px]">
             <div className="relative w-full">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-[#999999]" />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-[#717171]" />
               <Input
                 type="search"
                 placeholder="Search by student name, ack no."
-                className="w-full h-10 pl-11 pr-4 bg-white border-0 text-foreground placeholder:text-[#7E7E7E] rounded-[4px] focus-visible:ring-2 focus-visible:ring-white/30 shadow-sm"
+                aria-label="Search students"
+                className="w-full h-10 pl-11 pr-4 bg-white border-0 text-foreground placeholder:text-[#717171] rounded-[4px] focus-visible:ring-2 focus-visible:ring-white/30 shadow-sm"
               />
             </div>
           </div>
@@ -61,13 +62,15 @@ export function Header() {
             variant="ghost"
             size="sm"
             className="hidden sm:flex items-center gap-2 text-white hover:bg-white/15 hover:text-white h-9 px-3"
+            aria-label="What's New"
           >
             <Image
               src="/assets/icons/Whats New.svg"
-              alt="What's New"
+              alt=""
               width={16}
               height={16}
               className="h-4 w-4"
+              aria-hidden="true"
             />
             <span className="hidden lg:inline text-[14px] underline">What&apos;s New?</span>
           </Button>

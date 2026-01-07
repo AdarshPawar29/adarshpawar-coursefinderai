@@ -111,7 +111,7 @@ export function Sidebar() {
                   >
                     <Image
                       src={item.icon}
-                      alt={item.title}
+                      alt=""
                       width={20}
                       height={20}
                       className={cn("h-5 w-5", active ? "" : "")}
@@ -130,12 +130,13 @@ export function Sidebar() {
                   <div key={group.title}>
                     <button
                       onClick={() => toggleGroup(group.title)}
+                      aria-expanded={isExpanded}
                       className="flex w-full items-center justify-between px-4 py-3 rounded-lg text-[14px] font-normal text-[#666666] hover:bg-[#F5F5F5] hover:text-[#1A1A1A] transition-all duration-200"
                     >
                       <span className="flex items-center gap-3">
                         <Image
                           src={group.icon}
-                          alt={group.title}
+                          alt=""
                           width={20}
                           height={20}
                           className="h-5 w-5"
