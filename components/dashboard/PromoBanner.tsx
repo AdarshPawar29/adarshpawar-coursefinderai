@@ -48,7 +48,7 @@ export function PromoBanner() {
 
   return (
     <div className="w-full">
-      <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-[#00173F] via-[#0A2A66] to-[#226CF5] h-[300px]">
+      <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-[#00173F] via-[#0A2A66] to-[#226CF5] min-h-[300px] lg:h-[300px] h-auto">
         
 
 
@@ -57,9 +57,9 @@ export function PromoBanner() {
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}
         >
           {slides.map((slide) => (
-            <div key={slide.id} className="min-w-full h-full flex items-center justify-between px-8 lg:px-12 relative">
+            <div key={slide.id} className="min-w-full h-full flex flex-col lg:flex-row items-center justify-between px-6 py-10 lg:py-0 lg:px-12 relative">
               {/* Left Content */}
-              <div className="max-w-[50%] z-10 space-y-4">
+              <div className="w-full lg:max-w-[50%] z-10 space-y-4 text-center lg:text-left">
                 <div className="inline-block">
                   <span className="text-white text-sm font-medium tracking-wide">
                     {slide.tag}
@@ -79,7 +79,7 @@ export function PromoBanner() {
               </div>
 
               {/* Right Image Composition */}
-              <div className="relative h-full w-[45%] flex items-center justify-center">
+              <div className="relative w-full lg:w-[45%] h-[280px] lg:h-full flex items-center justify-center mt-6 lg:mt-0">
                 
                 {/* Main Blue Circle Container */}
                 <div className="relative w-64 h-64 lg:w-[18rem] lg:h-[18rem] bg-[#226CF5] rounded-full flex items-end justify-center overflow-visible mt-8 lg:mt-12">

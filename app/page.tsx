@@ -112,6 +112,14 @@ export default function DashboardPage() {
 
         {/* Promo Banner */}
         <PromoBanner />
+
+        {/* Right Panel Content - Visible on small screens (xl:hidden) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 xl:hidden">
+          <NewsBulletin />
+          <UpcomingEvents />
+          <QuickLinks />
+          <ContactSection />
+        </div>
       </div>
     </DashboardLayout>
   );

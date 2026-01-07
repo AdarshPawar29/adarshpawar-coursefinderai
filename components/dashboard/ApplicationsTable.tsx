@@ -142,8 +142,8 @@ export function ApplicationsTable() {
       </div>
 
       {/* Table */}
-      <div className="w-full">
-        <Table>
+      <div className="w-full overflow-x-auto">
+        <Table className="min-w-[800px]">
           <TableHeader className="bg-[#EBEEF1]">
             <TableRow className="border-none hover:bg-[#EBEEF1]">
               <TableHead className="w-[140px] text-[#717171] font-medium text-[13px] h-[36px] text-center p-0">
